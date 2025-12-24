@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     };
 
-    // クラスを初期状態で設定
+    // クラスを初期状態で設定（ revealed 用の共通クラスを後でHTMLに追加する場合も考慮）
     reveals.forEach(el => el.classList.add('reveal'));
 
     // 初期化時にも実行
