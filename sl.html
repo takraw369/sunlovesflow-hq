@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MASA Tuning - The Masterclass</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* SL Specific Styles */
+        body {
+            display: block;
+            background-color: #0a0a0c;
+        }
+        .sl-container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #111113;
+            box-shadow: 0 0 50px rgba(0,0,0,0.5);
+            overflow: hidden;
+        }
+        
+        /* Hero */
+        .sl-hero {
+            background-image: 
+                linear-gradient(to bottom, rgba(10,10,12,0.3), #111113),
+                radial-gradient(circle at top, rgba(255, 95, 31, 0.2), transparent 60%);
+            padding: 5rem 1.5rem 3rem;
+            text-align: center;
+        }
+        .sl-prehead {
+            color: var(--primary);
+            font-weight: 700;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .sl-headline {
+            font-size: clamp(2rem, 5vw, 3.2rem);
+            line-height: 1.3;
+            font-weight: 900;
+            margin-bottom: 2rem;
+        }
+        .sl-subhead {
+            font-size: 1.2rem;
+            color: var(--text-dim);
+            line-height: 1.8;
+            max-width: 680px;
+            margin: 0 auto;
+        }
+
+        /* Content Body */
+        .sl-body {
+            padding: 3rem 1.5rem;
+            font-family: 'Noto Sans JP', sans-serif;
+            color: #d0d0d5;
+        }
+        .section-box {
+            background: rgba(255, 255, 255, 0.03);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 2.5rem;
+            margin: 3rem 0;
+            border-radius: 12px;
+        }
+        h2.sl-h2 {
+            border-left: 4px solid var(--primary);
+            padding-left: 1rem;
+            margin: 3rem 0 1.5rem;
+            font-size: 1.8rem;
+            color: white;
+            line-height: 1.4;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            line-height: 1.9;
+            font-size: 1.05rem;
+        }
+        .highlight-text {
+            background: linear-gradient(transparent 60%, rgba(255, 95, 31, 0.4) 60%);
+            font-weight: 700;
+            color: white;
+            padding: 0 4px;
+        }
+        
+        /* Offer Section */
+        .offer-section {
+            background: #1a1a1e;
+            padding: 4rem 1.5rem;
+            text-align: center;
+            border-top: 1px solid var(--primary);
+            position: relative;
+        }
+        .offer-section::before {
+            content: "SPECIAL OFFER";
+            position: absolute;
+            top: -14px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary);
+            color: white;
+            padding: 4px 16px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            border-radius: 4px;
+        }
+        .price-box {
+            font-size: 3rem;
+            font-weight: 800;
+            color: var(--primary);
+            margin: 2rem 0;
+        }
+        .price-sub {
+            font-size: 1rem;
+            color: var(--text-dim);
+            text-decoration: line-through;
+        }
+
+        /* Floating CTA */
+        .btn-buy {
+            display: block;
+            width: 100%;
+            max-width: 400px;
+            margin: 0 auto;
+            background: linear-gradient(135deg, #FF5F1F 0%, #FF8C00 100%);
+            color: white;
+            text-align: center;
+            padding: 1.5rem;
+            border-radius: 12px;
+            font-weight: 800;
+            font-size: 1.4rem;
+            text-decoration: none;
+            box-shadow: 0 10px 30px rgba(255, 95, 31, 0.3);
+            transition: all 0.3s;
+        }
+        .btn-buy:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(255, 95, 31, 0.5);
+        }
+        
+        /* Profile */
+        .profile-section {
+            display: flex;
+            align-items: center;
+            gap: 2rem;
+            margin-top: 4rem;
+            border-top: 1px solid var(--border);
+            padding-top: 3rem;
+        }
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            background: #333; /* Placeholder for image */
+            flex-shrink: 0;
+        }
+        @media (max-width: 600px) {
+            .profile-section {
+                flex-direction: column;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="sl-container">
+        <!-- Hero -->
+        <header class="sl-hero">
+            <span class="sl-prehead">ONLY FOR THOSE WHO SEEK EXCELLENCE</span>
+            <h1 class="sl-headline">
+                なぜ、あなたの努力は<br>
+                <span style="color: var(--primary);">いつも「空回り」するのか？</span>
+            </h1>
+            <p class="sl-subhead">
+                根性論でも、スピリチュアルでもない。<br>
+                脳科学と身体論に基づく「調律」が、<br>
+                あなたの眠れる才能を強制的に覚醒させる。
+            </p>
+        </header>
+
+        <!-- Body -->
+        <div class="sl-body">
+            
+            <p>もしあなたが、これまでの人生で「自分はもっとできるはずだ」という焦燥感を抱き続けてきたなら、この手紙はあなたのためのものです。</p>
+            
+            <p>私たちは教えられてきました。<br>
+            「努力すれば報われる」「練習は嘘をつかない」と。</p>
+
+            <p>しかし、現実はどうでしょうか。</p>
+
+            <div class="section-box">
+                <p style="margin: 0; font-weight: 700; color: white;">
+                    ⚠️ 本番になると頭が真っ白になる<br>
+                    ⚠️ 誰よりも練習しているのに結果が出ない<br>
+                    ⚠️ 大事な場面で体が思い通りに動かない
+                </p>
+            </div>
+
+            <p>これらはすべて、あなたの才能の問題ではありません。<br>
+            ましてや、努力不足でもありません。</p>
+
+            <p><span class="highlight-text">『調律（Tuning）』が狂っているだけなのです。</span></p>
+
+            <h2 class="sl-h2">楽器を調律せずに<br>名演奏ができるだろうか？</h2>
+            
+            <p>一流のバイオリニストは、演奏前に必ず楽器を調律します。<br>
+            F1レーサーは、レース前に極限までマシンを整備します。</p>
+
+            <p>しかし、私たちはどうでしょうか？<br>
+            脳と体という、世界で最も複雑で精密な「楽器」を、<br>
+            何のメンテナンスもしないまま、いきなり本番のステージに上げてはいないでしょうか？</p>
+
+            <p>それでは、どんなに素晴らしい演奏技術（スキル）を持っていても、<br>
+            出てくる音は「不協和音」にしかなりません。</p>
+
+            <h2 class="sl-h2">MASA Tuning Method<br>3つのアプローチ</h2>
+
+            <p>私は日本代表クラスのアスリートたちと共に、<br>
+            「勝負の瞬間に最高のパフォーマンスを出す」ための研究を重ねてきました。</p>
+
+            <p>その結果、たどり着いたのがこのメソッドです。</p>
+
+            <ul style="list-style: none; padding: 0; margin: 2rem 0;">
+                <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                    <span style="color: var(--primary); font-weight: 900; font-size: 1.5rem;">01</span>
+                    <div>
+                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">脳の調律 (Neural Tuning)</strong>
+                        視覚・前庭覚へのアプローチで、脳のノイズを除去し、0.1秒で「集中状態」を作る技術。
+                    </div>
+                </li>
+                <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                    <span style="color: var(--primary); font-weight: 900; font-size: 1.5rem;">02</span>
+                    <div>
+                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">身体の調律 (Somatic Tuning)</strong>
+                        呼吸とバイオメカニクスを整え、無駄な力みを排除し、最大出力を引き出す。
+                    </div>
+                </li>
+                <li style="margin-bottom: 1.5rem; display: flex; gap: 1rem;">
+                    <span style="color: var(--primary); font-weight: 900; font-size: 1.5rem;">03</span>
+                    <div>
+                        <strong style="color: white; display: block; margin-bottom: 0.5rem;">心の調律 (Spiritual Tuning)</strong>
+                        INFJ的な深い洞察に基づき、自分の本当の価値観（Core Values）と接続する。
+                    </div>
+                </li>
+            </ul>
+
+            <p>これにより、あなたは「頑張って集中する」のではなく、<br>
+            <span class="highlight-text">「気づいたらZONEに入っていた」という状態を再現可能にします。</span></p>
+
+            <!-- Offer -->
+            <section class="offer-section" id="offer">
+                <h2 style="font-size: 2rem; margin-bottom: 1rem; color: white;">MASA Tuning Masterclass</h2>
+                <p>アスリート脳をインストールする5週間のオンラインプログラム</p>
+                
+                <div class="price-box">
+                    ¥49,800 <span style="font-size: 1rem; font-weight: 400; color: white;">(税込)</span>
+                </div>
+                
+                <a href="https://buy.stripe.com/placeholder" class="btn-buy">
+                    今すぐ参加する
+                    <span style="display: block; font-size: 0.9rem; font-weight: 400; margin-top: 0.5rem;">※ 30日間の返金保証付き</span>
+                </a>
+
+                <div style="margin-top: 2rem; font-size: 0.9rem; color: var(--text-dim);">
+                    <p>お支払いはクレジットカードに対応しています。</p>
+                </div>
+            </section>
+
+            <!-- Profile -->
+            <div class="profile-section">
+                <div class="profile-img" style="background: url('logo-placeholder.png') center/cover;"></div> <!-- Replace with actual image -->
+                <div>
+                    <strong style="color: white; font-size: 1.2rem; display: block; margin-bottom: 0.5rem;">MASA (山田昌寛)</strong>
+                    <p style="margin: 0; font-size: 0.95rem;">
+                        sunlovesflow代表。<br>
+                        元トップアスリートのメンタルコーチとして、数々の逆転劇を裏側で支える。<br>
+                        現在は経営者やリーダー向けに「整って勝つ」ための調律プログラムを提供。
+                    </p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+    
+    <footer style="text-align: center; padding: 3rem 0; color: var(--text-dim); font-size: 0.8rem;">
+        &copy; 2025 sunlovesflow | <a href="legal.html" style="color: var(--text-dim);">特定商取引法に基づく表記</a>
+    </footer>
+
+</body>
+</html>

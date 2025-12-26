@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>sunlovesflow - 公式LINE友だち追加キャンペーン</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800&family=Noto+Sans+JP:wght@400;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        /* Page-specific overrides for Line LP */
+        body {
+            display: block; /* Override flex centered layout from index */
+            background-color: var(--bg);
+            min-height: auto;
+        }
+        .lp-header {
+            text-align: center;
+            padding: 4rem 1rem;
+            background: radial-gradient(circle at center, rgba(255, 95, 31, 0.15) 0%, transparent 70%);
+        }
+        .lp-header h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            line-height: 1.2;
+            margin-bottom: 1.5rem;
+            text-shadow: 0 4px 20px rgba(0,0,0,0.5);
+        }
+        .highlight {
+            color: var(--primary);
+            display: block;
+            margin-top: 0.5rem;
+        }
+        .cta-section {
+            text-align: center;
+            padding: 2rem 1rem;
+        }
+        .line-btn {
+            display: inline-block;
+            background-color: #06C755; /* LINE Green */
+            color: white;
+            font-weight: 700;
+            font-size: 1.2rem;
+            padding: 1.2rem 3rem;
+            border-radius: 99px;
+            text-decoration: none;
+            box-shadow: 0 4px 15px rgba(6, 199, 85, 0.4);
+            transition: transform 0.2s, box-shadow 0.2s;
+            animation: pulse 2s infinite;
+        }
+        .line-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(6, 199, 85, 0.6);
+        }
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0.7); }
+            70% { box-shadow: 0 0 0 15px rgba(6, 199, 85, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(6, 199, 85, 0); }
+        }
+        .gifts-section {
+            max-width: 800px;
+            margin: 4rem auto;
+            padding: 0 1rem;
+        }
+        .gift-card {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid var(--border);
+            border-radius: 16px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            backdrop-filter: blur(10px);
+        }
+        .gift-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            background: rgba(255, 95, 31, 0.1);
+            width: 80px;
+            height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            flex-shrink: 0;
+        }
+        .gift-content h3 {
+            margin: 0 0 0.5rem 0;
+            font-size: 1.3rem;
+            color: white;
+        }
+        .gift-content p {
+            margin: 0;
+            color: var(--text-dim);
+            font-size: 0.95rem;
+        }
+        .profile-mini {
+            max-width: 600px;
+            margin: 4rem auto;
+            text-align: center;
+            padding: 2rem;
+            border-top: 1px solid var(--border);
+        }
+        .footer-links {
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+            color: var(--text-dim);
+        }
+        .footer-links a {
+            color: var(--text-dim);
+            text-decoration: none;
+            margin: 0 0.5rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="lp-header">
+        <p style="color: var(--text-dim); letter-spacing: 0.1em; margin-bottom: 1rem;">OFFICIAL LINE CAMPAIGN</p>
+        <h1>
+            「勝負強さ」は<br>
+            <span class="highlight">才能じゃない、技術だ。</span>
+        </h1>
+        <p style="max-width: 600px; margin: 0 auto 2rem; line-height: 1.8;">
+            アスリート×脳科学の知見を結集した<br>
+            「ZONEに入る」ための特別メソッドを無料公開中。
+        </p>
+        <div class="cta-section">
+            <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="line-btn">
+                今すぐ特典を受け取る
+            </a>
+            <p style="margin-top: 1rem; font-size: 0.9rem; color: var(--text-dim);">※ 期間限定・無料プレゼント中</p>
+        </div>
+    </header>
+
+    <section class="gifts-section">
+        <h2 style="text-align: center; margin-bottom: 3rem; font-size: 1.8rem;">
+            <span style="color: var(--primary); font-size: 1rem; display: block; margin-bottom: 0.5rem;">FRIEND BENEFITS</span>
+            友だち追加限定<br>3つのスペシャルギフト
+        </h2>
+
+        <div class="gift-card">
+            <div class="gift-icon">🎁</div>
+            <div class="gift-content">
+                <h3>Gift 01. 5日間集中講義</h3>
+                <p>「なぜ、努力しても結果が出ないのか？」脳科学的アプローチから、あなたのパフォーマンスを阻害する本当の原因を解明する特別講義（テキスト/動画）。</p>
+            </div>
+        </div>
+
+        <div class="gift-card">
+            <div class="gift-icon">🧠</div>
+            <div class="gift-content">
+                <h3>Gift 02. "ZONE"診断シート</h3>
+                <p>3分で完了。あなたの現在の「脳・体・心」の調律レベルを可視化し、最適なトレーニング法を提案する診断シートをプレゼント。</p>
+            </div>
+        </div>
+
+        <div class="gift-card">
+            <div class="gift-icon">✨</div>
+            <div class="gift-content">
+                <h3>Gift 03. シークレットコラム</h3>
+                <p>NoteやSNSでは公開していない、トップアスリートや経営者だけにお伝えしている「ここだけの話」を不定期配信。</p>
+            </div>
+        </div>
+        
+        <div class="cta-section" style="margin-top: 3rem;">
+            <a href="https://line.me/R/ti/p/@YOUR_LINE_ID" class="line-btn">
+                友だち追加して特典をGET
+            </a>
+        </div>
+    </section>
+
+    <div class="profile-mini">
+        <h3 style="color: var(--primary); margin-bottom: 1rem;">MASA (山田昌寛)</h3>
+        <p style="font-size: 0.9rem; line-height: 1.8;">
+            sunlovesflow代表。<br>
+            日本代表クラスのアスリートからビジネスリーダーまで、<br>
+            「勝負の瞬間」に最高の結果を出すためのメンタル・フィジカル調律を指導。<br>
+            「整って勝つ」を哲学に、人生の質を高める活動を展開中。
+        </p>
+    </div>
+
+    <footer class="footer-links">
+        <div style="margin-bottom: 1rem;">
+            <a href="legal.html">特定商取引法に基づく表記</a>
+            <a href="privacy.html">プライバシーポリシー</a>
+            <a href="terms.html">利用規約</a>
+        </div>
+        &copy; 2025 sunlovesflow
+    </footer>
+
+</body>
+</html>
