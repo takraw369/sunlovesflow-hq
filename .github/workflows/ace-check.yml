@@ -1,0 +1,40 @@
+name: ACE Public Check
+
+on:
+  push:
+    branches: [main, "feat/**"]
+    paths:
+      - "ace/check/**"
+      - ".github/workflows/ace-check.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "ace/check/**"
+      - ".github/workflows/ace-check.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check scripts
+        run: |
+          node --check ace/check/app.js
+          node --check ace/check/secure-form-client.js
+          node --check ace/check/config.js
+      - name: Check required assets
+        run: |
+          test -f ace/check/index.html
+          test -f ace/check/styles.css
+          test -f ace/check/app.js
+          test -f ace/check/secure-form-client.js
+          test -f ace/check/config.js
+      - name: Guard public config
+        run: |
+          if grep -Eiq 'HARNESS_API_KEY|LINE_CHANNEL_ACCESS_TOKEN|LINE_CHANNEL_SECRET|LINE_LOGIN_CHANNEL_SECRET' ace/check/config.js; then
+            echo 'Potential secret reference found in public ACE config'
+            exit 1
+          fi
