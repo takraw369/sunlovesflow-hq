@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f4ee" />
+  <title>ACE Calibration Check</title>
+  <meta name="description" content="身体・認知・感情・行動を分けずに、今の自分が最初に調える場所を見つけるACE Calibration Check。" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div>
+        <p class="eyebrow">ACE METHOD · CALIBRATION</p>
+        <h1>今の自分を、1度観察する。</h1>
+      </div>
+      <div class="progress-wrap" aria-label="進捗">
+        <span id="progressText">0 / 5</span>
+        <div class="progress-track"><div id="progressBar" class="progress-bar"></div></div>
+      </div>
+    </header>
+
+    <section id="screen-intro" class="screen is-active" data-step="0">
+      <div class="hero-card">
+        <p class="kicker">ACE Calibration Check</p>
+        <h2>これは「あなたは何タイプ？」を決める診断ではありません。</h2>
+        <p>今の出力を止めている場所を、<strong>身体・認知・感情・行動</strong>の4方向から観察します。</p>
+        <p class="muted">所要2〜4分。点数は他人との比較ではなく、今日の自分の個人内比較にだけ使います。</p>
+      </div>
+      <div class="notice safety">
+        <strong>安全について</strong>
+        <p>片足立ちで痛み・めまい・強い不安定さを感じる場合は実施せず、スキップしてください。本チェックは医療診断・心理検査ではありません。</p>
+      </div>
+      <button class="primary-btn" data-next="body">はじめる</button>
+    </section>
+
+    <section id="screen-body" class="screen" data-step="1">
+      <div class="section-head">
+        <p class="kicker">01 · BODY</p>
+        <h2>まず、身体の状態を見る</h2>
+        <p>「良い・悪い」ではなく、今どれくらい使える状態かを0〜4で観察します。</p>
+      </div>
+      <div id="bodyQuestions" class="question-list"></div>
+      <button class="primary-btn" data-next="balance">次へ</button>
+    </section>
+
+    <section id="screen-balance" class="screen" data-step="2">
+      <div class="section-head">
+        <p class="kicker">02 · BODY TEST</p>
+        <h2>片足バランス 30秒</h2>
+        <p>安全な場所で、壁や椅子の近くに立ちます。無理に粘らず、今の安定感だけを観察してください。</p>
+      </div>
+
+      <div class="timer-card">
+        <div id="timerValue" class="timer-value">30</div>
+        <p id="timerStatus" class="muted">準備できたらスタート</p>
+        <button id="timerButton" class="secondary-btn" type="button">30秒スタート</button>
+        <button id="skipBalance" class="text-btn" type="button">安全のためスキップ</button>
+      </div>
+
+      <div id="balanceRating" class="question-list is-hidden"></div>
+
+      <div class="mini-test">
+        <p class="kicker">ARM CHECK</p>
+        <h3>腕の平行伸ばし</h3>
+        <p>両腕を前に伸ばし、左右の高さ・長さの見え方・力みなどに差があるかを観察します。直そうとせず、今の左右差だけを見てください。</p>
+        <div id="armRating" class="question-list"></div>
+      </div>
+
+      <button class="primary-btn" data-next="mind">次へ</button>
+    </section>
+
+    <section id="screen-mind" class="screen" data-step="3">
+      <div class="section-head">
+        <p class="kicker">03 · MIND × ACTION</p>
+        <h2>認知・感情・行動を観察する</h2>
+        <p>最近の自分を基準に、0〜4で答えてください。</p>
+      </div>
+      <div id="mindQuestions" class="question-list"></div>
+      <button class="primary-btn" data-next="result">結果を見る</button>
+    </section>
+
+    <section id="screen-result" class="screen" data-step="4">
+      <div class="section-head">
+        <p class="kicker">04 · RESULT</p>
+        <h2>今、最初に触る場所</h2>
+      </div>
+
+      <div id="resultCard" class="result-card" aria-live="polite"></div>
+      <div id="scoreGrid" class="score-grid"></div>
+
+      <div class="next-action-card">
+        <span>今日の1アクション</span>
+        <strong id="nextAction"></strong>
+      </div>
+
+      <div id="syncStatus" class="notice sync-notice">LINEとの連携状態を確認中...</div>
+
+      <button id="consultButton" class="primary-btn" type="button">LINEで「相談」と送る</button>
+      <button id="restartButton" class="text-btn" type="button">もう一度チェックする</button>
+    </section>
+
+    <section id="screen-done" class="screen" data-step="5">
+      <div class="hero-card">
+        <p class="kicker">ACE · NEXT STEP</p>
+        <h2>結果は「答え」ではなく、次の実験の入口です。</h2>
+        <p>今日の1アクションを試し、Before / After の差を1つだけ観察してください。</p>
+      </div>
+    </section>
+  </main>
+
+  <template id="scaleQuestionTemplate">
+    <fieldset class="question-card">
+      <legend></legend>
+      <p class="question-help"></p>
+      <div class="scale" role="radiogroup"></div>
+      <div class="scale-labels"><span>0<br><small>今は難しい</small></span><span>4<br><small>かなりできる</small></span></div>
+    </fieldset>
+  </template>
+
+  <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
+  <script src="./config.js"></script>
+  <script src="./secure-form-client.js"></script>
+  <script src="./app.js"></script>
+</body>
+</html>
