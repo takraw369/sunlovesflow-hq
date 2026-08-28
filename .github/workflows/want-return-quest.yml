@@ -1,0 +1,36 @@
+name: Want to Return Quest
+
+on:
+  push:
+    branches: [main, "feat/**"]
+    paths:
+      - "quest/want-return/**"
+      - ".github/workflows/want-return-quest.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "quest/want-return/**"
+      - ".github/workflows/want-return-quest.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check JavaScript
+        run: node --check quest/want-return/app.js
+      - name: Check required assets
+        run: |
+          test -f quest/want-return/index.html
+          test -f quest/want-return/styles.css
+          test -f quest/want-return/app.js
+          test -f quest/want-return/day/1/index.html
+      - name: Guard accidental secrets
+        run: |
+          if grep -R -Eiq 'SUPABASE_SERVICE_ROLE_KEY|LINE_CHANNEL_ACCESS_TOKEN|LINE_CHANNEL_SECRET|HARNESS_API_KEY' quest/want-return; then
+            echo 'Potential secret reference found in public quest files'
+            exit 1
+          fi
