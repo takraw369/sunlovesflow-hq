@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="robots" content="noindex,nofollow" />
+  <title>Day 1｜NOTICE｜Want to Return Quest</title>
+  <meta name="description" content="Want toに戻る回路を育てる7日Quest。Day1は、答えを出す前に違和感を拾う。" />
+  <link rel="stylesheet" href="../../styles.css" />
+</head>
+<body>
+  <main class="app-shell">
+    <header class="topbar">
+      <div class="brand">ACE · WANT TO RETURN</div>
+      <div class="day-pill">DAY 1 / 7</div>
+    </header>
+
+    <div class="progress" aria-label="7日Quest進捗"><span></span></div>
+
+    <section class="hero">
+      <p class="kicker">DAY 1 · NOTICE</p>
+      <h1>答えを出す前に、<br>違和感を拾う。</h1>
+      <p class="lead">Want toは、最初から言葉になっているとは限らない。まずは「なんか違う」「なぜか気になる」という小さな反応を、消さずに残す。</p>
+    </section>
+
+    <section id="formScreen">
+      <form id="noticeForm" novalidate>
+        <div class="card">
+          <label class="label" for="noticeText">今日、少しでも「違うな」と感じたことは？</label>
+          <p class="help">仕事、人間関係、身体、時間の使い方、やり方。大きな問題でなくていい。</p>
+          <textarea id="noticeText" maxlength="400" placeholder="例：やることは終わったのに、なぜか前に進んだ感じがしなかった。"></textarea>
+        </div>
+
+        <div class="card">
+          <span class="label">その瞬間、最初にどこが反応した？</span>
+          <p class="help">意味づけより先に出た反応を選ぶ。</p>
+          <div class="signal-grid" role="group" aria-label="最初の反応">
+            <button type="button" class="signal-btn" data-signal="身体">身体</button>
+            <button type="button" class="signal-btn" data-signal="感情">感情</button>
+            <button type="button" class="signal-btn" data-signal="思考">思考</button>
+            <button type="button" class="signal-btn" data-signal="行動したくなる感じ">行動したくなる感じ</button>
+          </div>
+        </div>
+
+        <div class="card">
+          <span class="label">その反応の強さは？</span>
+          <p class="help">正確さより、今の自分の感覚で。</p>
+          <div class="scale-row" role="group" aria-label="反応の強さ">
+            <button type="button" class="scale-btn" data-intensity="0">0</button>
+            <button type="button" class="scale-btn" data-intensity="1">1</button>
+            <button type="button" class="scale-btn" data-intensity="2">2</button>
+            <button type="button" class="scale-btn" data-intensity="3">3</button>
+            <button type="button" class="scale-btn" data-intensity="4">4</button>
+          </div>
+          <div class="scale-caption"><span>ほぼない</span><span>かなり強い</span></div>
+        </div>
+
+        <button id="saveButton" class="primary-btn" type="submit" disabled>今日のSignalを残す</button>
+      </form>
+    </section>
+
+    <section id="doneScreen" class="is-hidden" aria-live="polite">
+      <div class="done-card">
+        <p class="kicker">SIGNAL CAPTURED</p>
+        <h2>今日は、変えなくていい。</h2>
+        <p>まず「気づけた」ことが1つ目のEvidence。違和感をすぐ正解・不正解にせず、明日まで持っておく。</p>
+
+        <div class="summary">
+          <p><strong>違和感</strong><br><span id="summaryText"></span></p>
+          <p><strong>最初の反応</strong><br><span id="summarySignal"></span></p>
+          <p><strong>強さ</strong><br><span id="summaryIntensity"></span></p>
+        </div>
+
+        <div class="next-door">
+          <strong>DAY 2 · WANT</strong><br>
+          明日は、この違和感の奥にある「本当はどうしたい？」を1文にする。まだ答えを決めなくていい。
+        </div>
+
+        <button id="editButton" class="secondary-btn" type="button">今日のSignalを修正する</button>
+        <button id="resetButton" class="secondary-btn" type="button">Day1をリセット</button>
+      </div>
+    </section>
+
+    <p class="muted" style="font-size:12px;margin:24px 4px 0;">このQuestは診断ではありません。自分の選択と変化を観察するための実践ワークです。入力内容は現時点ではこの端末内に保存されます。</p>
+  </main>
+
+  <script src="../../app.js"></script>
+</body>
+</html>
