@@ -6,11 +6,16 @@
   <meta name="robots" content="noindex,nofollow" />
   <title>Want to Return Quest</title>
   <script>
-    const query = location.search || '';
-    location.replace('./day/1/' + query);
+    (() => {
+      const query = location.search || '';
+      let day = 1;
+      try {
+        const state = JSON.parse(localStorage.getItem('slf.wantReturnQuest.v1') || '{}');
+        day = Math.min(7, Math.max(1, Number(state.currentDay || 1)));
+      } catch (_) {}
+      location.replace(`./day/${day}/${query}`);
+    })();
   </script>
 </head>
-<body>
-  <p><a href="./day/1/">Want to Return Questを開く</a></p>
-</body>
+<body><p>Want to Return Questを開いています…</p></body>
 </html>
