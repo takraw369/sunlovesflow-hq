@@ -1,0 +1,40 @@
+name: Want Return Quest
+
+on:
+  push:
+    branches: [main, "feat/**"]
+    paths:
+      - "quest/want-return/**"
+      - ".github/workflows/want-return.yml"
+  pull_request:
+    branches: [main]
+    paths:
+      - "quest/want-return/**"
+      - ".github/workflows/want-return.yml"
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+      - name: Check shared script
+        run: node --check quest/want-return/app.js
+      - name: Check all day pages
+        run: |
+          test -f quest/want-return/index.html
+          test -f quest/want-return/styles.css
+          test -f quest/want-return/app.js
+          for day in 1 2 3 4 5 6 7; do
+            test -f "quest/want-return/day/$day/index.html"
+            grep -q "data-day=\"$day\"" "quest/want-return/day/$day/index.html"
+            grep -q "../../app.js" "quest/want-return/day/$day/index.html"
+          done
+      - name: Guard browser code
+        run: |
+          if grep -Eiq 'SUPABASE_SERVICE_ROLE_KEY|LINE_CHANNEL_ACCESS_TOKEN|LINE_CHANNEL_SECRET' quest/want-return/app.js quest/want-return/day/*/index.html; then
+            echo 'Secret reference found in public quest assets'
+            exit 1
+          fi
